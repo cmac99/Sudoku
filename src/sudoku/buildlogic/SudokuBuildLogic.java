@@ -15,12 +15,12 @@ public class SudokuBuildLogic {
         SudokuGame initialState;
         IStorage storage = new LocalStorageImpl();
 
-//        try {
-//            initialState = storage.getGameData();
-//        } catch (IOException e) {
+        try {
+            initialState = storage.getGameData();
+        } catch (IOException e) {
             initialState = GameLogic.getNewGame();
             storage.updateGameData(initialState);
-        //}
+        }
         IUserInterfaceContract.EventListener uiLogic
                 = new ControlLogic(storage, userInterface);
 
